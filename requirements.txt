@@ -1,7 +1,7 @@
-Flask==2.x
+Flask>=2.0,<3.0
 flask-cors
 googletrans==4.0.0-rc1
 gTTS
-whisper
+openai-whisper
 torch
 gunicorn
