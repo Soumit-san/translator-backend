@@ -13,7 +13,7 @@ app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
 translator = Translator()
-whisper_model = whisper.load_model("base")
+whisper_model = whisper.load_model("tiny")
 
 UPLOAD_FOLDER = "uploads"
 AUDIO_OUTPUT_FOLDER = "audio_output"
@@ -64,4 +64,5 @@ def speech_to_text():
     return jsonify({'transcribed_text': result['text']})
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
